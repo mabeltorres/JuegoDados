@@ -17,11 +17,15 @@ public class RepositorioIconos {
 	}
 
 	private ImageIcon generarIcono(String nombreArchivo, int tamaño) {
+		ImageIcon icono = obtenerIcono(nombreArchivo, tamaño);
+		cachéIconos.put(nombreArchivo, icono);
+		return icono;
+	}
+
+	private ImageIcon obtenerIcono(String nombreArchivo, int tamaño) {
 		ImageIcon icono = new ImageIcon(VentanaJuego.class
 				.getResource("/presentaci\u00F3n/iconos/" + nombreArchivo));
 		Image image = icono.getImage().getScaledInstance(tamaño, tamaño, Image.SCALE_SMOOTH);
-		icono = new ImageIcon(image);
-		cachéIconos.put(nombreArchivo, icono);
-		return icono;
+		return new ImageIcon(image);
 	}
 }
