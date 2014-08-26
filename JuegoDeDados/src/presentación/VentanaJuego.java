@@ -84,6 +84,7 @@ public class VentanaJuego {
 
 	private void inicializarVentana() {
 		frame = new JFrame();
+		frame.setTitle("Juego de Dados");
 		frame.setBounds(100, 100, 250, 180);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
