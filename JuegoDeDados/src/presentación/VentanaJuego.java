@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,13 +23,11 @@ import dominio.JuegoDados;
 public class VentanaJuego {
 
 	private JFrame frame;
-	private JButton btnJugar;
 	private List<JLabel> dados;
 	private JuegoDados juego;
 	private JPanel panelBotones;
 	private JButton btnSalir;
-	private JLabel lblDado1;
-	private JLabel lblDado2;
+	private RepositorioIconos iconos;
 
 	public void mostrar() {
 		frame.setVisible(true);
@@ -65,19 +62,14 @@ public class VentanaJuego {
 	}
 
 	private ImageIcon getIconoDado(String nombreArchivo) {
-		return getIcono(nombreArchivo, 80);
+		return iconos.getIcono(nombreArchivo, 80);
 	}
 
-	private ImageIcon getIcono(String nombreArchivo, int tamaño) {
-		ImageIcon imageIcon = new ImageIcon(VentanaJuego.class.getResource("/presentaci\u00F3n/iconos/" + nombreArchivo));
-		Image image = imageIcon.getImage().getScaledInstance(tamaño, tamaño, Image.SCALE_SMOOTH);
-		imageIcon = new ImageIcon(image);
-		return imageIcon;
-	}
 
 	public VentanaJuego(JuegoDados juego) {
 		this.juego = juego;
 		this.dados = new ArrayList<>();
+		this.iconos = new RepositorioIconos();
 
 		inicializar();
 	}
@@ -112,7 +104,7 @@ public class VentanaJuego {
 	}
 
 	private void inicializarBotónJugar() {
-		btnJugar = new JButton("Jugar");
+		JButton btnJugar = new JButton("Jugar");
 		btnJugar.setIcon(getIconoBotón("dados.png"));
 		btnJugar.addActionListener(new EscuchadorBotónJugar());
 		
@@ -127,7 +119,7 @@ public class VentanaJuego {
 	}
 
 	private ImageIcon getIconoBotón(String nombreArchivo) {
-		return getIcono(nombreArchivo, 40);
+		return iconos.getIcono(nombreArchivo, 40);
 	}
 
 	private void inicializarDados() {
@@ -150,7 +142,7 @@ public class VentanaJuego {
 	}
 
 	private void inicializarDado2(JPanel panel) {
-		lblDado2 = new JLabel("");
+		JLabel lblDado2 = new JLabel("");
 		GridBagConstraints gbc_lblDado2 = new GridBagConstraints();
 		gbc_lblDado2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDado2.gridx = 3;
@@ -160,7 +152,7 @@ public class VentanaJuego {
 	}
 
 	private void inicializarDado1(JPanel panel) {
-		lblDado1 = new JLabel("");
+		JLabel lblDado1 = new JLabel("");
 		GridBagConstraints gbc_lblDado1 = new GridBagConstraints();
 		gbc_lblDado1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDado1.gridx = 1;
