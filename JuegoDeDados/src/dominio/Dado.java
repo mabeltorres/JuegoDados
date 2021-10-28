@@ -4,8 +4,10 @@ import java.util.Random;
 public class Dado {
 	
 	private int valorCara;
-	
+	private Random generadorDeNumerosAleatorios = new Random();
+
 	public int obtenerValorCara() {
+
 		return valorCara;
 	}
 	
@@ -14,7 +16,6 @@ public class Dado {
 	}
 	
 	private int generarEnteroAlAzar() {
-		Random rnd = new Random();
-		return rnd.nextInt(6) + 1;
+		return generadorDeNumerosAleatorios.nextInt(6) + 1;
 	}
 }

@@ -1,4 +1,4 @@
-package presentación;
+package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 
 import dominio.JuegoDados;
+import presentaciÃ³n.RepositorioIconos;
 
 public class VentanaJuego {
 
@@ -33,14 +34,14 @@ public class VentanaJuego {
 		frame.setVisible(true);
 	}
 
-	private class EscuchadorBotónSalir implements ActionListener {
+	private class EscuchadorBotonSalir implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			frame.dispose();
 		}
 	}
 
-	private class EscuchadorBotónJugar implements ActionListener {
+	private class EscuchadorBotonJugar implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			juego.jugar();
@@ -93,8 +94,8 @@ public class VentanaJuego {
 
 	private void inicializarBotones() {
 		inicializarPanelBotones();
-		inicializarBotónJugar();
-		inicializarBotónSalir();
+		inicializarBotonJugar();
+		inicializarBotonSalir();
 	}
 
 	private void inicializarPanelBotones() {
@@ -104,22 +105,22 @@ public class VentanaJuego {
 		panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	}
 
-	private void inicializarBotónJugar() {
+	private void inicializarBotonJugar() {
 		JButton btnJugar = new JButton("Jugar");
-		btnJugar.setIcon(getIconoBotón("dados.png"));
-		btnJugar.addActionListener(new EscuchadorBotónJugar());
+		btnJugar.setIcon(getIconoBoton("dados.png"));
+		btnJugar.addActionListener(new EscuchadorBotonJugar());
 		
 		panelBotones.add(btnJugar);
 	}
 
-	private void inicializarBotónSalir() {
+	private void inicializarBotonSalir() {
 		btnSalir = new JButton("Salir");
-		btnSalir.setIcon(getIconoBotón("salir.png"));
-		btnSalir.addActionListener(new EscuchadorBotónSalir());
+		btnSalir.setIcon(getIconoBoton("salir.png"));
+		btnSalir.addActionListener(new EscuchadorBotonSalir());
 		panelBotones.add(btnSalir);
 	}
 
-	private ImageIcon getIconoBotón(String nombreArchivo) {
+	private ImageIcon getIconoBoton(String nombreArchivo) {
 		return iconos.getIcono(nombreArchivo, 40);
 	}
 

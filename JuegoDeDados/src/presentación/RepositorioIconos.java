@@ -23,7 +23,7 @@ public class RepositorioIconos {
 	}
 
 	private ImageIcon obtenerIcono(String nombreArchivo, int tamaño) {
-		ImageIcon icono = new ImageIcon(VentanaJuego.class
+		ImageIcon icono = new ImageIcon(presentacion.VentanaJuego.class
 				.getResource("/presentaci\u00F3n/iconos/" + nombreArchivo));
 		Image image = icono.getImage().getScaledInstance(tamaño, tamaño, Image.SCALE_SMOOTH);
 		return new ImageIcon(image);
